@@ -5,7 +5,13 @@ RSpec.describe MusicList do
   context "initializes without a string" do
     it "fails if not string" do
     expect { music_list = MusicList.new(4) }.to raise_error "Not a string"
-    
+    end
+  end
+
+  context "add track that is not a string" do
+    it "fails if not string" do
+      music_list = MusicList.new("Never Gonna Give You Up")
+      expect { music_list.add(5) }.to raise_error "Not a string"
     end
   end
 
