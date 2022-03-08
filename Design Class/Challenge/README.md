@@ -1,4 +1,4 @@
-# {{PROBLEM}} Class Design Recipe
+# {{PROBLEM}} Class Design Recipe.
 
 ## 1. Describe the Problem
 
