@@ -1,0 +1,18 @@
+class MusicList
+  def initialize(track)
+    @list = []
+
+    fail "Not a string" if !track.is_a?(String)
+
+    @list << track    
+  end
+
+  def add(track)
+    @list << track
+  end
+
+  def list
+    @list
+  end
+
+end
