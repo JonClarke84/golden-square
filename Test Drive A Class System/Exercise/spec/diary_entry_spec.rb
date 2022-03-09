@@ -1,4 +1,5 @@
-require 'diary'
+require 'diary_entry'
+require 'range_as_string'
 
 RSpec.describe DiaryEntry do
   
@@ -18,26 +19,26 @@ RSpec.describe DiaryEntry do
   end
 
   it "returns the correct reading time" do
-    result = DiaryEntry.new("My Diary", ("1".."100").to_a.join(" "))
+    result = DiaryEntry.new("My Diary", range_as_string(1, 100))
     expect(result.reading_time(50)).to eq 2
   end
 
   it "returns a string with a chunk the reader could read in the time given" do
-    result = DiaryEntry.new("My Diary", ("1".."100").to_a.join(" "))
-    expect(result.reading_chunk(50, 1)).to eq ("1".."50").to_a.join(" ")
+    result = DiaryEntry.new("My Diary", range_as_string(1, 100))
+    expect(result.reading_chunk(50, 1)).to eq range_as_string(1, 50)
   end
 
   it "reading_chunk called a second time returns the second half" do
-    result = DiaryEntry.new("My Diary", ("1".."100").to_a.join(" "))
+    result = DiaryEntry.new("My Diary", range_as_string(1, 100))
     result.reading_chunk(50, 1)
-    expect(result.reading_chunk(50, 1)).to eq ("51".."100").to_a.join(" ")
+    expect(result.reading_chunk(50, 1)).to eq range_as_string(51, 100)
   end
 
   it "reading_chunk called a third time returns the first half" do
-    result = DiaryEntry.new("My Diary", ("1".."100").to_a.join(" "))
+    result = DiaryEntry.new("My Diary", range_as_string(1, 100))
     result.reading_chunk(50, 1)
     result.reading_chunk(50, 1)
-    expect(result.reading_chunk(50, 1)).to eq ("1".."50").to_a.join(" ")
+    expect(result.reading_chunk(50, 1)).to eq range_as_string(1, 50)
   end
 
   end
