@@ -30,13 +30,9 @@ class DiaryEntry
     total_words = wpm * minutes
     remaining_contents = @remaining_contents.split(/ /)
 
-    # reading_chunk = remaining_contents[0...total_words]
-    # remaining_contents.slice!(0...total_words).join(" ")
-    # @remaining_contents = remaining_contents.join(" ")
-
-    # reading_chunk.join(" ")
     reading_chunk = remaining_contents.slice!(0...total_words).join(" ")
     @remaining_contents = remaining_contents.join(" ")
     reading_chunk
   end
 end
+
