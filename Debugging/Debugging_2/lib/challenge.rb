@@ -4,14 +4,14 @@ class LetterCounter
   end
 
   def calculate_most_common()
-    counter = Hash.new()
+    counter = Hash.new(0)
     most_common = nil
-    # most_common_count = 1
-    most_common_count = 0
+    most_common_count = 1
     @text.chars.each do |char|
       next unless is_letter?(char)
       # binding.irb
-      counter[char] = (counter[char] || 0) + 1
+      counter[char] += 1
+      p counter
       if counter[char] > most_common_count
         most_common = char
         most_common_count = counter[char]
