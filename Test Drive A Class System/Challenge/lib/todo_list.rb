@@ -35,6 +35,5 @@ class TodoList
     @todo_list.each do |task|
       task.mark_done!
     end
-    @todo_list
   end
 end
