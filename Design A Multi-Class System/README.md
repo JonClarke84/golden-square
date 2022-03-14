@@ -173,6 +173,14 @@ task2 = Task.new("Clean my hands")
 todo_list.add(task1)
 todo_list.add(task2)
 expect(todo_list.incomplete).to eq [task1, task2]
+
+todo_list = TodoList.new
+task1 = Task.new("Eat the burger")
+task2 = Task.new("Clean my hands")
+todo_list.add(task1)
+todo_list.add(task2)
+task2.mark_done
+expect(todo_list.incomplete).to eq [task2]
 ```
 
 > As a user

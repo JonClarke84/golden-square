@@ -18,7 +18,13 @@ class TodoList
   end
 
   def complete
-  # returns a list of complete tasks
+    complete = []
+    @todo_list.each do |todo|
+      if todo.status == true
+        complete << todo
+      end     
+    end
+    complete
   end
 
   def give_up!
