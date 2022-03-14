@@ -1,17 +1,18 @@
 class Contact
   def initialize(name, number) # name, number are strings
-  # ...
+    @name = name
+    @number = number
   end
 
   def name
-  # returns name
+    @name
   end
 
   def number
-  # returns number
+    @number
   end
 
   def display_contact
-  # returns formatted contact details
+    "#{@name} - #{@number}"
   end
 end
