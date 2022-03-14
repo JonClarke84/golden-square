@@ -203,7 +203,11 @@ expect(entry.read_entry).to eq "Title: Friday. Entry: I met Dave, his phone numb
 
 #testing Task
 task = Task.new("Tune the guitar")
+task2 = Task.new("Buy picks")
+task.mark_done
 expect(task.name).to eq "Tune the guitar"
+expect(task.status).to eq true
+expect(task2.status).to eq false
 
 #testing Contact
 new_contact = Contact.new("Dave", "07123123123")
