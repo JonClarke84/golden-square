@@ -29,7 +29,7 @@ I want to see a list of all of the mobile phone numbers in all my diary entries
 > ## 2. Design the Class System
 
 ```ruby
-def Diary
+class Diary
   def add(entry) # entry is an instance of DiaryEntry
   # returns nothing
   end
@@ -47,7 +47,7 @@ def Diary
   end
 end
 
-def DiaryEntry
+class DiaryEntry
   def intialize(title, contents) # title, contents are strings
   # ...
   end
@@ -57,7 +57,7 @@ def DiaryEntry
   end
 end
 
-def TodoList
+class TodoList
   def intialize
   # ...
   end
@@ -79,9 +79,13 @@ def TodoList
   end
 end
 
-def Task(name)
+class Task(name)
   def initialize(name) #name is a string
   # ...
+  end
+
+  def name
+    # returns the task name
   end
 
   def mark_done
@@ -89,7 +93,7 @@ def Task(name)
   end
 end
 
-def ContactList
+class ContactList
   def initialize
   #...
   end
@@ -98,13 +102,12 @@ def ContactList
    # ...
   end
 
-
   def list_contacts
   # returns a list of contacts
   end
 end
 
-def Contact
+class Contact
   def initialize(name, number) # name, number are strings
   # ...
   end
@@ -124,11 +127,6 @@ end
 ```
 
 > ## 3. Create Examples as Integration Tests
->
-> Create examples of the classes being used together in different situations
-> and combinations that reflect the ways in which the system will be used.
->
-> Encode one of these as a test and move to step 4.
 
 > As a user
 > So that I can record my experiences
@@ -197,9 +195,23 @@ expect(diary.all_diary_numbers).to eq ["Friday: Dave - 07845123123", "Sunday: Ma
 >
 > Create examples, where appropriate, of the behaviour of each relevant class at
 > a more granular level of detail.
->
-> Encode one of these as a test and move to step 5.
->
+
+```ruby
+#testing DiaryEntry
+entry = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123.")
+expect(entry.read_entry).to eq "Title: Friday. Entry: I met Dave, his phone number is 07845123123.\n"
+
+#testing Task
+task = Task.new("Tune the guitar")
+expect(task.name).to eq "Tune the guitar"
+
+#testing Contact
+new_contact = Contact.new("Dave", "07123123123")
+expect(new_contact.name).to eq "Dave"
+expect(new_contact.number).to eq "07123123123"
+expect(new_contact.display_contact).to eq "Dave - 07123123123"
+```
+
 > ## 5. Implement the Behaviour
 >
 > For each example you create as a test, implement the behaviour that allows the
