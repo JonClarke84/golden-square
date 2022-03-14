@@ -1,14 +1,20 @@
 class TodoList
-  def intialize
-  # ...
+  def initialize
+    @todo_list = []
   end
 
   def add(task) # task is an instance of Task
-  # returns nothing
+   @todo_list << task
   end
 
   def incomplete
-  # returns a list of incomplete tasks
+    incomplete = []
+    @todo_list.each do |todo|
+      if todo.status == false
+        incomplete << todo
+      end      
+    end
+    incomplete
   end
 
   def complete
