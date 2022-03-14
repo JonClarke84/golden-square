@@ -25,6 +25,19 @@ class DiaryEntry
     @contents.split.count
   end
 
+  def has_mobile_number?
+    contents_words = @contents.split
+    contents_words.each do |word|
+      if (word[-1] == ".") || (word[-1] == "!") || (word[-1] == "?") || (word[-1] == ",")
+        word.chop!
+      end
+      if (word.length == 11) && (word[0] == "0") && (word[1] == "7") && (word !~ /\D/)
+        return true
+      end
+    end
+    return false
+  end
+
   # def reading_time(wpm) 
   #   count_words / wpm
   # end

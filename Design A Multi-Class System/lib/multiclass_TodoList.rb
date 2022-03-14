@@ -26,8 +26,4 @@ class TodoList
     end
     complete
   end
-
-  def give_up!
-  # returns nothing
-  end
 end
