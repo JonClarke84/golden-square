@@ -27,7 +27,7 @@ RSpec.describe Diary do
     expect(diary.time_to_read(1, 10)).to eq tuesday.read_entry
   end
 
-  xit 'returns a list of mobile contacts in all diary entries' do
+  it 'returns a list of mobile contacts in all diary entries' do
     diary = Diary.new
     friday = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123")
     saturday = DiaryEntry.new("Saturday", "I went to the cinema and had a lovely time.")
@@ -36,7 +36,9 @@ RSpec.describe Diary do
     diary.add(friday)
     diary.add(saturday)
     diary.add(sunday)
-    expect(diary.all_diary_numbers).to eq ["Friday: Dave - 07845123123", "Sunday: Mary - 07854777666", "Unknown numbers: 07854777555"]
+    diary.add(monday)
+
+    expect(diary.all_diary_numbers).to eq ["07845123123", "07854777666", "07854777555"]
   end
 
 end

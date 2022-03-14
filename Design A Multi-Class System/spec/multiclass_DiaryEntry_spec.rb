@@ -24,12 +24,12 @@ RSpec.describe DiaryEntry do
 
     it "returns true if the entry contains a mobile number" do
       entry = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123.")
-      expect(entry.has_mobile_number?).to eq true
+      expect(entry.mobile_number).to eq "07845123123"
     end
 
     it "returns false if the entry does not contain a mobile number" do
       entry = DiaryEntry.new("Saturday", "I went to the cinema and had a lovely time.")
-      expect(entry.has_mobile_number?).to eq false
+      expect(entry.mobile_number).to eq nil
     end
     
   end

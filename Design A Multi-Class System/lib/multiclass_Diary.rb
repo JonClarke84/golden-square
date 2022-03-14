@@ -29,6 +29,13 @@ class Diary
   end
 
   def all_diary_numbers
+    diary_numbers = []
+    @entries.each do |entry|
+      if entry.mobile_number != nil
+        diary_numbers << "#{entry.mobile_number}"
+      end
+    end
+    diary_numbers
   end
   
 end

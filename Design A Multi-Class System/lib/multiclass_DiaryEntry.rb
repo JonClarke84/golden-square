@@ -7,6 +7,7 @@ class DiaryEntry
   
     @title = title
     @contents = contents
+    @mobile_number = has_mobile_number?(@contents)
   end
 
   def title
@@ -25,17 +26,20 @@ class DiaryEntry
     @contents.split.count
   end
 
-  def has_mobile_number?
-    contents_words = @contents.split
-    contents_words.each do |word|
+  def mobile_number
+    @mobile_number
+  end
+
+  def has_mobile_number?(contents)
+    contents.split.each do |word|
       if (word[-1] == ".") || (word[-1] == "!") || (word[-1] == "?") || (word[-1] == ",")
         word.chop!
       end
       if (word.length == 11) && (word[0] == "0") && (word[1] == "7") && (word !~ /\D/)
-        return true
+        return word
       end
     end
-    return false
+    return nil
   end
 
   # def reading_time(wpm) 

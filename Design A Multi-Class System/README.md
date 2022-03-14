@@ -196,7 +196,9 @@ monday = DiaryEntry.new("Monday", "Quentin's phone number is 07854777555, but I 
 diary.add(friday)
 diary.add(saturday)
 diary.add(sunday)
-expect(diary.all_diary_numbers).to eq ["Friday: Dave - 07845123123", "Sunday: Mary - 07854777666", "Unknown numbers: 07854777555"]
+diary.add(monday)
+
+expect(diary.all_diary_numbers(contact_list)).to eq ["07845123123", "07854777666", "07854777555"]
 ```
 
 > ## 4. Create Examples as Unit Tests
@@ -216,12 +218,6 @@ task.mark_done
 expect(task.name).to eq "Tune the guitar"
 expect(task.status).to eq true
 expect(task2.status).to eq false
-
-#testing Contact
-new_contact = Contact.new("Dave", "07123123123")
-expect(new_contact.name).to eq "Dave"
-expect(new_contact.number).to eq "07123123123"
-expect(new_contact.display_contact).to eq "Dave - 07123123123"
 ```
 
 > ## 5. Implement the Behaviour
