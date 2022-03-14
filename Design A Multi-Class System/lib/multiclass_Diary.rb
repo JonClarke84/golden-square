@@ -7,8 +7,17 @@ class Diary
     @entries << entry
   end
 
-  def time_to_read(wpm, minute)
-    
+  def time_to_read(wpm, minutes)
+    total_words_to_read = wpm * minutes
+    entries_array = []
+      
+    @entries.each do |entry|
+      if entry.count_words <= total_words_to_read
+        entries_array << entry
+      end
+    end
+    entries_array.sort_by! { |entry| entry.count_words}
+    entries_array[-1].read_entry
   end
 
   def read_all_entries
