@@ -13,7 +13,7 @@ So that I can verify that my order is correct
 I would like to see an itemised receipt with a grand total.
 
 ```ruby
-#/lib/dishes.rb
+#/lib/dish.rb
 class Dish
   def initialize(name, price) #name is a string, price is a float
     #...

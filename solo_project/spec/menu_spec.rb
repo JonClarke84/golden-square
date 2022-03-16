@@ -2,7 +2,6 @@ require 'menu'
 
 RSpec.describe Menu do
   it 'adds dishes and displays them' do
-    
     io = double :io
 
     dish1 = double :dish1, display: "Chicken Tikka: £7.49"
