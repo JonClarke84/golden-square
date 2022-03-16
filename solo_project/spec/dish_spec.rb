@@ -15,7 +15,7 @@ RSpec.describe Dish do
     
     it 'returns the formatted name and price' do
       dish = Dish.new("Chicken Tikka", 7.49)
-      expect(dish.display).to eq "- Chicken Tikka: £7.49"
+      expect(dish.display).to eq "Chicken Tikka: £7.49"
     end
   end
 end

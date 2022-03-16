@@ -14,6 +14,6 @@ class Dish
   end
 
   def display
-    "- #{@name}: £#{@price}"
+    "#{@name}: £#{@price}"
   end
 end
