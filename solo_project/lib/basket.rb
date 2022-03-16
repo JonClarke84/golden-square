@@ -28,10 +28,17 @@ class Basket
   end
 
   def contents
+    @basket_contents
+  end
+
+  def print_contents
     #returns formatted contents of basket
+    total_price = 0
     @io.puts "Dishes currently in your basket:"
     @basket_contents.each do |dish|
      @io.puts "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}"
+     total_price += (dish[:price] * dish[:quantity])
     end
+    @io.puts "Total price: £#{total_price}"
   end
 end
