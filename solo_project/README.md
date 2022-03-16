@@ -13,9 +13,7 @@ So that I can verify that my order is correct
 I would like to see an itemised receipt with a grand total.
 
 ```ruby
-
 #/lib/dishes.rb
-
 class Dish
   def initialize(name, price) #name is a string, price is a float
     #...
@@ -53,6 +51,7 @@ end
 ```
 
 ```ruby
+#lib/basket.rb
 class Basket
   def initialize
     #sets hash ready for dishes & quantity
@@ -63,18 +62,36 @@ class Basket
   end
 
   def contents
-    #returns contents of basket
+    #returns formatted contents of basket
   end
 end
 ```
 
 ```ruby
+#lib/order.rb
 class Order
   def initialize(order) #takes a list of contents from Basket
   end
 
   def print_receipt
     #prints a reciept
+  end
+
+  def notify
+    #notifies the user by text that their order is on the way
+  end
+end
+```
+
+```ruby
+class Takeaway
+  # the user interface and controlling task
+  def run
+    #runs the menu in a loop until order.notify is run
+  end
+
+  def select
+    #presents the user with a selection of dishes and asks for the choice
   end
 end
 ```
