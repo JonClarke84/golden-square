@@ -28,11 +28,12 @@ class Basket
   end
 
   def contents
+    #returns basket contents
     @basket_contents
   end
 
   def print_contents
-    #returns formatted contents of basket
+    #prints formatted contents of basket
     total_price = 0
     @io.puts "Dishes currently in your basket:"
     @basket_contents.each do |dish|
