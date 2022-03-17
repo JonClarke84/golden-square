@@ -21,4 +21,22 @@ RSpec.describe Menu do
 
     menu.list
   end
+
+  it 'selects an item from the menu' do
+    io = double :io
+
+    dish1 = double :dish1
+    dish2 = double :dish2
+    dish3 = double :dish3
+  
+    menu = Menu.new(io)
+
+    menu.add(dish1)
+    menu.add(dish2)
+    menu.add(dish3)
+
+    expect(menu.select(1)).to eq dish1
+
+  end
+
 end
