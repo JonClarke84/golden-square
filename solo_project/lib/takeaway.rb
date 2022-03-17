@@ -1,35 +1,19 @@
-require 'dish'
-require 'menu'
-require 'basket'
-require 'order'
+require_relative 'dish'
+require_relative 'menu'
+require_relative 'basket'
+require_relative 'order'
+require_relative 'user_interface'
 
-class Takeaway
-  def initialize(io, menu, basket)
-    @io = io
-    @menu = menu
-    @basket = basket
-  end
+dish1 = Dish.new("Fish and Chips", 8.99)
+dish2 = Dish.new("Chicken Tikka", 9.99)
+dish3 = Dish.new("Sushi", 4.99)
+dish4 = Dish.new("Stir Fry", 3.49)
 
-  def select_dishes
-    #loop do
-      @io.puts "Please select your order from the list below."
-      @io.puts "#{@menu.list}"
-      @io.print "Make your selection: "
-      selection = @io.gets.chomp.to_i
-      
-      @basket.add(@menu.select(selection))
-    
-      @io.puts "You have added #{@basket.contents[-1].name}."
-      @io.print "Make another choice? y/n: "
-      
-      #break if @io.gets.chomp.downcase == "n"
-    #end
-  end
+menu = Menu.new
+menu.add(dish1)
+menu.add(dish2)
+menu.add(dish3)
+menu.add(dish4)
 
-  def run
-    @io.puts "Welcome to The Restaurant."
-    select_dishes
-    #order = Order.new(@io, @basket)
-    #order.print_receipt
-  end
-end
+takeaway = UserInterface.new(menu)
+takeaway.run

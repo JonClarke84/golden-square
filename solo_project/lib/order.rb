@@ -1,22 +1,17 @@
 #lib/order.rb
 class Order
-  def initialize(io, basket) #takes a list of contents from Basket
-    @io = io
+  def initialize(basket) #takes a list of contents from Basket
     @basket = basket
   end
 
   def print_receipt
     #prints a receipt
     total_price = 0
-    @io.puts "You have ordered:"
+    receipt = "You have ordered:\n"
     @basket.contents.each do |dish|
-     @io.puts "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}"
+     receipt += "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}\n"
      total_price += (dish[:price] * dish[:quantity])
     end
-    @io.puts "Total price: £#{total_price}"
-  end
-
-  def notify
-    #notifies the user by text that their order is on the way
+    return receipt += "Total price: £#{total_price}"
   end
 end

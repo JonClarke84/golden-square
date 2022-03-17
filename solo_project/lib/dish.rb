@@ -2,7 +2,7 @@
 class Dish
   def initialize(name, price) #name is a string, price is a float
     @name = name
-    @price = price.to_f
+    @price = price
   end
 
   def name

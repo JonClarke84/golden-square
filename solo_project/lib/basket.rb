@@ -1,8 +1,7 @@
 #lib/basket.rb
 class Basket
-  def initialize(io)
+  def initialize
     @basket_contents = []
-    @io = io
   end
 
   def add(dish) #accepts choices from customer
@@ -17,11 +16,12 @@ class Basket
       @basket_contents << new_dish
     else
       @basket_contents.each do |dish_already_in_basket|
-        unless dish_already_in_basket[:name] == dish.name
-          @basket_contents << new_dish
+        if dish_already_in_basket[:name] == dish.name
+          dish_already_in_basket[:quantity] += 1
           break
         else
-          dish_already_in_basket[:quantity] += 1
+          @basket_contents << new_dish
+          break
         end
       end
     end
@@ -32,14 +32,14 @@ class Basket
     @basket_contents
   end
 
-  def print_contents
+  def format_contents
     #prints formatted contents of basket
     total_price = 0
-    @io.puts "Dishes currently in your basket:"
+    output = "Dishes currently in your basket:\n"
     @basket_contents.each do |dish|
-     @io.puts "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}"
+     output += "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}\n"
      total_price += (dish[:price] * dish[:quantity])
     end
-    @io.puts "Total price: £#{total_price}"
+    return output += "Total price: £#{total_price}"
   end
 end
