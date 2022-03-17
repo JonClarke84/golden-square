@@ -1,12 +1,19 @@
+require 'dish'
+require 'menu'
+require 'basket'
+require 'order'
+
 class Takeaway
+  def initialize(io, menu)
+    @io = io
+    @menu = menu
+  end
+
   def run
-    Kernel.puts "Welcome to The Restaurant. Please select your order from the list below."
-    Kernel.puts "Here is the list of items"
-    Kernel.print "Make your selection: "
-    selection = Kernel.gets.chomp
+    @io.puts "Welcome to The Restaurant."
+    @io.puts "Please select your order from the list below."
+    @io.puts "#{@menu.list}"
+    @io.print "Make your selection: "
+    selection = @io.gets.chomp.to_i
   end
 end
-
-takeaway = Takeaway.new
-
-takeaway.run
