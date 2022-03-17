@@ -1,4 +1,5 @@
 require_relative 'basket'
+require_relative 'send_sms'
 
 class UserInterface
   def initialize(menu)
@@ -37,6 +38,5 @@ class UserInterface
     select_dishes
     order = Order.new(@basket)
     puts order.print_receipt
-    puts order.notify
   end
 end
