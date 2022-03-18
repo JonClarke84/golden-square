@@ -38,5 +38,6 @@ class UserInterface
     select_dishes
     order = Order.new(@basket)
     puts order.print_receipt
+    send_sms(order.print_receipt)
   end
 end
