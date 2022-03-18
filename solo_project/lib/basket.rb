@@ -21,9 +21,6 @@ class Basket
       quantity: 1
     }
 
-    #TO BE SORTED OUT - NOT ADDING UP PROPERLY
-
-
     if @basket_contents == []
       new_dish[:quantity] = 0
       @basket_contents << new_dish
