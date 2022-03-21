@@ -4,13 +4,13 @@ RSpec.describe Order do
   context 'given an order' do
     it 'prints a receipt' do
       basket = double :basket, contents: [
-        {name: "Chicken Tikka",
+        { name: "Chicken Tikka",
          price: 7.49,
-         quantity: 2},
+         quantity: 2 },
 
-        {name: "Fish and Chips",
+        { name: "Fish and Chips",
          price: 8.99,
-         quantity: 1}
+         quantity: 1 }
       ]
       order = Order.new(basket)
       expect(order.print_receipt).to eq "You have ordered:\n" + 

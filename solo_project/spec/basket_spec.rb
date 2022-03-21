@@ -12,8 +12,8 @@ RSpec.describe Basket do
     basket.add(dish2)
 
     expect(basket.contents).to eq [
-      {:name=>"Chicken Tikka", :price=>7.49, :quantity=>2},
-      {:name=>"Fish and Chips", :price=>8.99, :quantity=>1}
+      { :name => "Chicken Tikka", :price => 7.49, :quantity => 2 },
+      { :name => "Fish and Chips", :price => 8.99, :quantity => 1 }
     ]
   end
 

@@ -4,7 +4,7 @@ require 'dotenv/load'
 require 'time'
 
 def send_sms(print_receipt)
-  estimated_time = Time.now + (30*60)
+  estimated_time = Time.now + (30 * 60)
 
   account_sid = ENV['TWILIO_ACCOUNT_SID']
   auth_token = ENV['TWILIO_AUTH_TOKEN']

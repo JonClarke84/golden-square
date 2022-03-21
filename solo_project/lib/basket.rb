@@ -1,4 +1,4 @@
-#lib/basket.rb
+# lib/basket.rb
 class Basket
   def initialize
     @basket_contents = []
@@ -13,8 +13,8 @@ class Basket
     return false
   end
 
-  def add(dish) #accepts choices from customer
-    #adds dish to basket, increasing quantity when selected multiple times
+  def add(dish) # accepts choices from customer
+    # adds dish to basket, increasing quantity when selected multiple times
     new_dish = {
       name: dish.name,
       price: dish.price,
@@ -39,17 +39,17 @@ class Basket
   end
 
   def contents
-    #returns basket contents
+    # returns basket contents
     @basket_contents
   end
 
   def format_contents
-    #prints formatted contents of basket
+    # prints formatted contents of basket
     total_price = 0
     output = "Dishes currently in your basket:\n"
     @basket_contents.each do |dish|
-     output += "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}\n"
-     total_price += (dish[:price] * dish[:quantity])
+      output += "#{dish[:name]}: £#{dish[:price]}: x#{dish[:quantity]}\n"
+      total_price += (dish[:price] * dish[:quantity])
     end
     return output += "Total price: £#{total_price.round(2)}"
   end

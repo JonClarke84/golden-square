@@ -1,17 +1,13 @@
-#/lib/dishes.rb
+# /lib/dishes.rb
 class Dish
-  def initialize(name, price) #name is a string, price is a float
+  def initialize(name, price) # name is a string, price is a float
     @name = name
     @price = price
   end
 
-  def name
-    @name
-  end
+  attr_reader :name
 
-  def price
-    @price
-  end
+  attr_reader :price
 
   def display
     "#{@name}: £#{@price}"
